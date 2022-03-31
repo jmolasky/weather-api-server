@@ -24,7 +24,7 @@ app.post("/weather", async (req, res) => {
     console.log(req.body);
     try {
         const response = await axios.get(
-            `${url}lat=${req.body.latitude}&lon=${req.body.longitude}&appid=${api_key}`
+            `${url}lat=${req.body.latitude}&lon=${req.body.longitude}&appid=${api_key}&units=imperial`
         );
         console.log(response.data);
         res.json(response.data);
