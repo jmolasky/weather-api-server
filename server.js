@@ -6,7 +6,8 @@ const morgan = require("morgan");
 const axios = require("axios");
 const app = express();
 
-const url = "https://api.openweathermap.org/data/2.5/forecast?";
+// const url = "https://api.openweathermap.org/data/2.5/forecast?";
+const url = "https://api.openweathermap.org/data/2.5/onecall?";
 
 const api_key = process.env.api_key;
 
@@ -28,12 +29,6 @@ app.post("/weather", async (req, res) => {
         );
         console.log(response.data);
         res.json(response.data);
-        // const response = await fetch(
-        //     `${url}lat=${req.body.latitude}&lon=${req.body.longitude}&appid=${api_key}`
-        // );
-        // const data = await response.json();
-        // console.log(data);
-        // res.json(data);
     } catch (error) {
         res.status(400).json(error);
     }
